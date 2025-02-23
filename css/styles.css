@@ -551,8 +551,50 @@ address {
 
 /*   PORTFOLIO   */
 
+.font-h-two {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+}
+.font-h-three {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+.font-p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: 0;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 374px) {
+    .font-h-two {
+        font-weight: 600;
+        font-size: 44px;
+        line-height: 1.08;
+        letter-spacing: -0.01em;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .font-h-two {
+        font-size: 64px;
+        line-height: 1;
+    }
+    .font-h-three {
+        font-size: 32px;
+    }
+    .font-p {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+}
+
+
 .vegetables-section {
-    padding: 80px 0;
     background-color: var(--chianti);
 }
 .vegetables-h-two {
@@ -594,29 +636,48 @@ address {
     color: var(--black);
 }
 
-.portfolio-section-items-img-div {
+.vegetables-img {
+    background-color: transparent;
+    width: 100%;
+    height: 240px;
+    border-radius: 40px; 
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .vegetables-img-inner {
     position: relative;
-    overflow: hidden;
-}
-.overlay {
-    padding: 40px 32px;
-    background-color: var(--primary-brand-color);
-    color: var(--light-color);
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
-    transform: translateY(100%);  
-}
-.portfolio-section-list-items:hover .overlay {
-    transform: translateY(0);
-}
-.portfolio-section-list-items-container {
-    padding: 32px 16px;
-    text-align: left;
-}
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .vegetables-items:hover .vegetables-img-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .vegetables-img-front, .vegetables-img-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+  }
+  
+  /* Style the back side */
+  .vegetables-img-back {
+    background-color: var(--green);
+    padding: 10px;
+    color: var(--white);
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 @media screen and (min-width: 320px) and (max-width: 374px) {
     .vegetables-h-two {
@@ -638,9 +699,6 @@ address {
 }
 
 @media screen and (min-width: 768px) {
-    .vegetables-section {
-        padding: 100px 0;
-    }
     .vegetables-title-div {
         padding-right: 78px;
     }
@@ -675,7 +733,7 @@ address {
     }
 }
 
-/*    YOUR ORDER   */
+/*    REVIEWS   */
 
 .reviews-section {
     padding: 80px 0;
@@ -761,9 +819,100 @@ address {
     }
 }
 
+/*    YOUR ORDER    */
+
+.your-order-section {
+    background-color: var(--green);
+}
+.your-order-h-two {
+    text-align: left;
+    margin-bottom: 20px;
+    color: var(--white);
+    text-transform: uppercase;
+}
+.your-order-span-h-two {
+    text-align: left;
+    color: var(--blush);
+    text-transform: uppercase;
+}
+.your-order-p {
+    margin-bottom: 40px;
+    color: var(--white);
+}
+.your-order-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.your-order-form-div {
+    width: 100%;
+    padding: 40px 20px;
+    border-radius: 30px;
+    background-color: var(--white);
+}
+.order-form-h-three {
+    margin-bottom: 40px;
+    color: var(--black);
+    text-align: left;
+    text-transform: uppercase;
+}
+.span-chianti {
+    color: var(--chianti);
+    text-align: left;
+    text-transform: uppercase;
+}
+.span-chianti {
+    color: var(--green);
+    text-align: left;
+    text-transform: uppercase;
+}
+.order-form {
+    padding: 0;
+    width: 100%;
+}
+.input-div {
+    margin-bottom: 16px;
+}
+.form-input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid var(--grey);
+    border-radius: 30px;
+    background-color: transparent;
+    outline: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 14px 16px;
+    color: var(--black);
+}
+.form-input::placeholder {
+    color: var(--black);
+}
+.your-order-img-div {
+    width: 100%;
+    padding: 40px 20px;
+    border-radius: 30px;
+    background-color: var(--chianti);
+}
+.your-order-img {
+    border-radius: 15px;
+    background-color: transparent;
+    overflow: hidden;
+}
+.your-order-img-p {
+    margin-top: 20px;
+    margin-bottom: 16px;
+    color: var(--blush);
+    text-align: left;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--primary-brand-color);
+}
+
 /*    FOOTER    */
 
-.footer {
+/* .footer {
     background-color: var(--dark-color);
     padding: 96px 0;
 }
@@ -947,12 +1096,12 @@ address {
     .logo-div {
         margin-right: 40px;
     }
-}
+} */
 
 
 /*    MODAL   */
 
-.backdrop {
+/* .backdrop {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -1179,5 +1328,5 @@ address {
         min-height: 584px;
         transform: translate(-50%, -70%);
     }
-}
+} */
 
